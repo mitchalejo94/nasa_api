@@ -7,16 +7,15 @@ let input = document.getElementById("input");
 
 let apiKey = "&api_key=HkeNgIrQ2HClA3VMum0nMKiX93xdGA8H7PLQAHOv";
 let apiName = "https://api.nasa.gov";
-let apiEndPoint =
-  "/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&";
 
 button.addEventListener("click", function (event) {
+  let apiEndPoint = `/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${input.value}&`;
   //clear data each time you search
   dataInject.innerHTML = "";
+  fetchFunc(apiName + apiEndPoint + apiKey);
 });
 
 //call function api
-fetchFunc(apiName + apiEndPoint + apiKey);
 // fetchFunc(wholeURL);
 
 async function fetchFunc(url) {
